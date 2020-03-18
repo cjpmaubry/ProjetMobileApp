@@ -13,13 +13,21 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.modildev.mytestapplication1.R;
+import com.modildev.mytestapplication1.Stock;
+import com.modildev.mytestapplication1.StockManager;
+
+import java.util.ArrayList;
 
 public class Entrepot1Fragment extends Fragment {
 
     private Entrepot1ViewModel galleryViewModel;
+    private ArrayList<Stock> stockList = new ArrayList<Stock>();
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
         galleryViewModel =
                 ViewModelProviders.of(this).get(Entrepot1ViewModel.class);
         View root = inflater.inflate(R.layout.fragment_entrepot1, container, false);

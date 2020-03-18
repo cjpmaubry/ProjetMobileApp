@@ -4,11 +4,17 @@ public class Stock {
     private int id;
     private String type;
     private int warehouseID;
-    private double quantity;
+    private int quantity;
 
     public Stock(int id, String type, int warehouseID, int quantity) {
         super();
         this.id = id;
+        this.type = type;
+        this.warehouseID = warehouseID;
+        this.quantity = quantity;
+    }
+
+    public Stock(String type, int quantity, int warehouseID) {
         this.type = type;
         this.warehouseID = warehouseID;
         this.quantity = quantity;
@@ -38,11 +44,11 @@ public class Stock {
         this.warehouseID = warehouseID;
     }
 
-    public double getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(double quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

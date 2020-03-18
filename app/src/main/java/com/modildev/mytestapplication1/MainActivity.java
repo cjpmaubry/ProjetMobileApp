@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        WarehouseManager wm = new WarehouseManager(this);
 
-        wm.open();
+        StockManager sm = new StockManager(this);
+        sm.open();
 
-        wm.close();
+        sm.close();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
