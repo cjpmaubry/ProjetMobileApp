@@ -10,7 +10,7 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_entrepot1"
-            android:icon="@drawable/ic_menu_entrepot1"
+            android:icon="@drawable/ic_filter_1"
             android:title="@string/menu_entrepot1" />
         <item
             android:id="@+id/nav_entrepot2"
