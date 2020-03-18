@@ -8,9 +8,9 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_entrepot1">Entrepot1</string>
-    <string name="menu_entrepot2">Entrepot2</string>
-    <string name="menu_entrepot3">Entrepot3</string>
+    <string name="menu_entrepot1">Warehouse1</string>
+    <string name="menu_entrepot2">Warehouse2</string>
+    <string name="menu_entrepot3">Warehouse3</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 

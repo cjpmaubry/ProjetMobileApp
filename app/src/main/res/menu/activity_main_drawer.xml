@@ -9,15 +9,15 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_entrepot1"
             android:icon="@drawable/ic_menu_entrepot1"
             android:title="@string/menu_entrepot1" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_entrepot2"
             android:icon="@drawable/ic_menu_entrepot2"
             android:title="@string/menu_entrepot2" />
         <item
-            android:id="@+id/nav_tools"
+            android:id="@+id/nav_entrepot3"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/menu_entrepot3" />
     </group>
