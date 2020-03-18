@@ -45,4 +45,9 @@ public class Stock {
     public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
+
+    public String dispayAll(){
+        String str = id + "; " + type + "; " + quantity + "; " + warehouseID;
+        return str;
+    }
 }

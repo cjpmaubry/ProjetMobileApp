@@ -2,17 +2,17 @@ package com.modildev.mytestapplication1;
 
 public class Warehouse {
     private int warehouseID;
-    private String adress;
+    private String address;
     private String name;
 
-    public Warehouse(int warehouseID, String adress, String name) {
+    public Warehouse(int warehouseID, String address, String name) {
         this.warehouseID = warehouseID;
-        this.adress = adress;
+        this.address = address;
         this.name = name;
     }
 
-    public Warehouse(String adress, String name) {
-        this.adress = adress;
+    public Warehouse(String address, String name) {
+        this.address = address;
         this.name = name;
     }
 
@@ -24,12 +24,12 @@ public class Warehouse {
         this.warehouseID = warehouseID;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getaddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setaddress(String address) {
+        this.address = address;
     }
 
     public String getName() {
@@ -38,5 +38,10 @@ public class Warehouse {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public String displayAll(){
+        String str = warehouseID + "; " + address + " ;" + name;
+        return str;
     }
 }

@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StockManager {
     private static final String TABLE_NAME = "Stock";
     public static final String id = "id";
@@ -86,6 +89,20 @@ public class StockManager {
             return s;
         }
         return null;
+    }
+
+    public ArrayList<Stock> searchStock(String keyword){
+        ArrayList<Stock> results = new ArrayList<Stock>();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + type + " LIKE ?", new String[]{"%"+keyword+"%"});
+        if (c.moveToNext()){
+            int Id = c.getInt(c.getColumnIndex(id));
+            String Type = c.getString(c.getColumnIndex(type));
+            int Quantity = c.getInt(c.getColumnIndex(quantity));
+            int WarehouseID = c.getInt(c.getColumnIndex(quantity));
+            Stock s = new Stock(Id, Type,WarehouseID, Quantity);
+            results.add(s);
+        }
+        return results;
     }
 
     public Cursor getStocks(){
