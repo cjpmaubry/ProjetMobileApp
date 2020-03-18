@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class MySQLite extends SQLiteOpenHelper {
-    private static final String DBName = "Pico.db";
+    private static final String DBName = "Management.db";
     private static final int DBVersion = 1;
     private static MySQLite instance;
 
