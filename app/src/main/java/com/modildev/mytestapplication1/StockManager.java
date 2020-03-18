@@ -18,8 +18,8 @@ public class StockManager {
             + TABLE_NAME + " ("
             + id + " INTEGER primary key, "
             + type + " TEXT, "
-            + quantity + " TEXT, "
-            + warehouseID + "TEXT);";
+            + quantity + " INTEGER, "
+            + warehouseID + " INTEGER);";
     private SQLiteDatabase db;
     private MySQLite myBase;
 
@@ -33,6 +33,49 @@ public class StockManager {
 
     public void close(){
         db.close();
+    }
+
+    public long addStock(Stock s){
+        ContentValues values = new ContentValues();
+        values.put(id, s.getId());
+        values.put(type, s.getType());
+        values.put(quantity, s.getQuantity());
+        values.put(warehouseID, s.getWarehouseID());
+        return db.insert(TABLE_NAME, null, values);
+    }
+
+    public int deleteStock(Stock s){
+        String where = id + " = ?";
+        String[] whereArgs = {s.getId()+""};
+        return db.delete(TABLE_NAME, where, whereArgs);
+    }
+
+    public int editStock(Stock s){
+        ContentValues values = new ContentValues();
+        values.put(id, s.getId());
+        values.put(type, s.getType());
+        values.put(quantity, s.getQuantity());
+        values.put(warehouseID, s.getWarehouseID());
+        String where = id + " ?";
+        String[] whereArgs = {s.getId()+""};
+        return db.update(TABLE_NAME, values, where, whereArgs);
+    }
+
+    public Stock getStock(int ID){
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + id + "=?", new String[]{Integer.toString(ID)});
+        if (c.moveToFirst()){
+            int Id = c.getInt(c.getColumnIndex(id));
+            String Type = c.getString(c.getColumnIndex(type));
+            int Quantity = c.getInt(c.getColumnIndex(quantity));
+            int WarehouseID = c.getInt(c.getColumnIndex(quantity));
+            Stock s = new Stock(ID, Type,WarehouseID, Quantity);
+            return s;
+        }
+        return null;
+    }
+
+    public Cursor getStocks(){
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
 }
