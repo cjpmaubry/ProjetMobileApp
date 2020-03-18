@@ -8,14 +8,14 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_entrepot1">Warehouse1</string>
-    <string name="menu_entrepot2">Warehouse2</string>
-    <string name="menu_entrepot3">Warehouse3</string>
+    <string name="menu_entrepot1">Fridge</string>
+    <string name="menu_entrepot2">Cupboard</string>
+    <string name="menu_entrepot3">Pantry</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Notepad</string>
+    <string name="title_notifications">Video ?</string>
 
 </resources>
