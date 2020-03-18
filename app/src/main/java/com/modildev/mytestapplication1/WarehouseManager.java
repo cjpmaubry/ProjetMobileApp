@@ -38,18 +38,28 @@ public class WarehouseManager {
         return db.insert(TABLE_NAME, null, values);
     }
 
-    public int deleteWarehouse(Warehouse w){
+    public int deleteWarehouse(int ID){
         String where = id + " = ?";
-        String[] whereArgs = {w.getWarehouseID()+""};
+        String[] whereArgs = {ID+""};
         return db.delete(TABLE_NAME, where, whereArgs);
     }
 
-    public int editWarehouse(Warehouse w){
+    public int editWarehouse(int ID, String newAddress, String newName){
+        Warehouse w = getWarehouse(ID);
         ContentValues values = new ContentValues();
-        values.put(id, w.getWarehouseID());
-        values.put(address, w.getAdress());
-        values.put(name, w.getName());
-        String where = id + " ?";
+        values.put(id, ID);
+
+        if (newAddress.equals(""))
+            values.put(address, w.getAdress());
+        else
+            values.put(address, newAddress);
+
+        if (newName.equals(""))
+            values.put(name, w.getName());
+        else
+            values.put(name, newName);
+
+        String where = id + " = ?";
         String[] whereArgs = {w.getWarehouseID()+""};
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
