@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         WarehouseManager wm = new WarehouseManager(this);
         wm.open();
-        wm.editWarehouse(8, "ESILV", "");
 
         wm.close();
 
