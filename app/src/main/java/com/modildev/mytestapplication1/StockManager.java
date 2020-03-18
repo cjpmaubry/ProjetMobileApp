@@ -44,19 +44,33 @@ public class StockManager {
         return db.insert(TABLE_NAME, null, values);
     }
 
-    public int deleteStock(Stock s){
+    public int deleteStock(int ID){
         String where = id + " = ?";
-        String[] whereArgs = {s.getId()+""};
+        String[] whereArgs = {ID+""};
         return db.delete(TABLE_NAME, where, whereArgs);
     }
 
-    public int editStock(Stock s){
+    public int editStock(int ID, String newtype, int newQuantity, int newWarehouseID){
         ContentValues values = new ContentValues();
-        values.put(id, s.getId());
-        values.put(type, s.getType());
-        values.put(quantity, s.getQuantity());
-        values.put(warehouseID, s.getWarehouseID());
-        String where = id + " ?";
+        Stock s = getStock(ID);
+        values.put(id, ID);
+
+        if (newtype.equals(""))
+            values.put(type, s.getType());
+        else
+            values.put(type, newtype);
+
+        if (newQuantity == -1)
+            values.put(quantity, s.getQuantity());
+        else
+            values.put(quantity, newQuantity);
+
+        if (newWarehouseID == -1)
+            values.put(warehouseID, s.getWarehouseID());
+        else
+            values.put(warehouseID, newWarehouseID);
+
+        String where = id + " = ?";
         String[] whereArgs = {s.getId()+""};
         return db.update(TABLE_NAME, values, where, whereArgs);
     }

@@ -33,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         WarehouseManager wm = new WarehouseManager(this);
         wm.open();
-        wm.addWarehouse(new Warehouse("address1", "Warehouse1"));
-        wm.addWarehouse(new Warehouse("address2", "Warehouse2"));
-        wm.addWarehouse(new Warehouse("address3", "Warehouse3"));
+        wm.editWarehouse(8, "ESILV", "");
+
         wm.close();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
