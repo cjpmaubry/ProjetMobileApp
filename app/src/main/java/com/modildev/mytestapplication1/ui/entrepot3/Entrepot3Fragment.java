@@ -1,4 +1,4 @@
-package com.modildev.mytestapplication1.ui.gallery;
+package com.modildev.mytestapplication1.ui.entrepot3;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.modildev.mytestapplication1.R;
 
-public class GalleryFragment extends Fragment {
+public class Entrepot3Fragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private Entrepot3ViewModel toolsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_entrepot1);
-        galleryViewModel.getText().observe(this, new Observer<String>() {
+        toolsViewModel =
+                ViewModelProviders.of(this).get(Entrepot3ViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_entrepot3, container, false);
+        final TextView textView = root.findViewById(R.id.text_entrepot3);
+        toolsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

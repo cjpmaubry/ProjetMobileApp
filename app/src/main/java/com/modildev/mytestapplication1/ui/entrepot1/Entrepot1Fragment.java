@@ -1,4 +1,4 @@
-package com.modildev.mytestapplication1.ui.tools;
+package com.modildev.mytestapplication1.ui.entrepot1;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.modildev.mytestapplication1.R;
 
-public class ToolsFragment extends Fragment {
+public class Entrepot1Fragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+    private Entrepot1ViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
-        final TextView textView = root.findViewById(R.id.text_entrepot3);
-        toolsViewModel.getText().observe(this, new Observer<String>() {
+        galleryViewModel =
+                ViewModelProviders.of(this).get(Entrepot1ViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_entrepot1, container, false);
+        final TextView textView = root.findViewById(R.id.text_entrepot1);
+        galleryViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
