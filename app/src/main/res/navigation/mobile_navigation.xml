@@ -14,19 +14,19 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.modildev.mytestapplication1.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_entrepot1"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.modildev.mytestapplication1.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_entrepot2"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.modildev.mytestapplication1.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
+        android:label="@string/menu_entrepot3"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
