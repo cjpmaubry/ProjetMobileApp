@@ -12,7 +12,7 @@ public class WarehouseManager {
     public static final String name = "name";
     public static final String CREATE_TABLE_WAREHOUSE = "CREATE TABLE "
             + TABLE_NAME + " ("
-            + id + " INTEGER primary key, "
+            + id + " INTEGER primary key AUTOINCREMENT, "
             + address + " TEXT, "
             + name + " TEXT);";
     private SQLiteDatabase db;
@@ -32,7 +32,7 @@ public class WarehouseManager {
 
     public long addWarehouse(Warehouse w){
         ContentValues values = new ContentValues();
-        values.put(id, w.getWarehouseID());
+        //values.put(id, w.getWarehouseID());
         values.put(address, w.getAdress());
         values.put(name, w.getName());
         return db.insert(TABLE_NAME, null, values);

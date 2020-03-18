@@ -16,7 +16,7 @@ public class StockManager {
     public static final String warehouseID = "warehouseID";
     public static final String CREATE_TABLE_STOCK = "CREATE TABLE "
             + TABLE_NAME + " ("
-            + id + " INTEGER primary key, "
+            + id + " INTEGER primary key AUTOINCREMENT, "
             + type + " TEXT, "
             + quantity + " INTEGER, "
             + warehouseID + " INTEGER);";
@@ -37,7 +37,7 @@ public class StockManager {
 
     public long addStock(Stock s){
         ContentValues values = new ContentValues();
-        values.put(id, s.getId());
+        //values.put(id, s.getId());
         values.put(type, s.getType());
         values.put(quantity, s.getQuantity());
         values.put(warehouseID, s.getWarehouseID());
