@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_home2">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.modildev.mytestapplication1.ui.home.HomeFragment"
+        android:id="@+id/navigation_home2"
+        android:name="com.modildev.mytestapplication1.ui.home2.HomeFragment2"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home2" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
