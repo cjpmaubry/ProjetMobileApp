@@ -36,6 +36,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        initUI(root);
         return root;
     }
 
@@ -55,3 +56,4 @@ public class HomeFragment extends Fragment {
 
     }
 }
+
