@@ -14,9 +14,11 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="text_home">Welcome to HomeManagementApp</string>
+    <string name="text_notepad">Welcome to Notepad</string>
     <string name="button_home">Info mode</string>
     <string name="text_home2">Welcome to HomeManagementApp Section More info</string>
     <string name="button_home2">Management mode</string>
+    <string name="button_notepad">Go to Notepad</string>
 
     <string name="title_home">Home</string>
     <string name="title_notepad">Notepad</string>
