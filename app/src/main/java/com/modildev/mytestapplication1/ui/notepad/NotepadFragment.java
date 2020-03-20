@@ -1,4 +1,4 @@
-package com.modildev.mytestapplication1.ui.dashboard;
+package com.modildev.mytestapplication1.ui.notepad;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,16 +14,16 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.modildev.mytestapplication1.R;
 
-public class DashboardFragment extends Fragment {
+public class NotepadFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private NotepadViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
+                ViewModelProviders.of(this).get(NotepadViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notepad, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
+        final TextView textView = root.findViewById(R.id.text_notepad);
         dashboardViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

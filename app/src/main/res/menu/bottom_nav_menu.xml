@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_notepad"
         android:icon="@drawable/ic_notepad"
-        android:title="@string/title_dashboard" />
+        android:title="@string/title_notepad" />
 
     <item
         android:id="@+id/navigation_notifications"

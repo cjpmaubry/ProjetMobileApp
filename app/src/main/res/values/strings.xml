@@ -19,7 +19,7 @@
     <string name="button_home2">Management mode</string>
 
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Notepad</string>
+    <string name="title_notepad">Notepad</string>
     <string name="title_notifications">Video ?</string>
 
 </resources>

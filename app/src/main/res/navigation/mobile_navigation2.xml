@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home2" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.modildev.mytestapplication1.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:id="@+id/navigation_notepad"
+        android:name="com.modildev.mytestapplication1.ui.notepad.NotepadFragment"
+        android:label="@string/title_notepad"
         tools:layout="@layout/fragment_notepad" />
 
     <fragment
