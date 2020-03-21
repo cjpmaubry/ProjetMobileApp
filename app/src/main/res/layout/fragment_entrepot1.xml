@@ -26,6 +26,13 @@
         android:layout_below="@id/text_entrepot1"
         android:layout_marginTop="20dp"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_button1"
+        android:layout_below="@id/search_bar1"
+        android:text="Add"/>
+
     <androidx.recyclerview.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -35,7 +42,7 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:context="com.modildev.mytestapplication1.RecyclerViewActivity"
-        android:layout_below="@id/search_bar1"/>
+        android:layout_below="@id/add_button1"/>
 
 
 </RelativeLayout>
