@@ -81,7 +81,7 @@ public class StockManager {
     public Stock getStock(int ID){
         Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + id + "=?", new String[]{Integer.toString(ID)});
         if (c.moveToFirst()){
-            int Id = c.getInt(c.getColumnIndex(id));
+            //int Id = c.getInt(c.getColumnIndex(id));
             String Type = c.getString(c.getColumnIndex(type));
             int Quantity = c.getInt(c.getColumnIndex(quantity));
             int WarehouseID = c.getInt(c.getColumnIndex(quantity));
@@ -100,6 +100,20 @@ public class StockManager {
             int Quantity = c.getInt(c.getColumnIndex(quantity));
             int WarehouseID = c.getInt(c.getColumnIndex(quantity));
             Stock s = new Stock(Id, Type,WarehouseID, Quantity);
+            results.add(s);
+        }
+        return results;
+    }
+
+    public ArrayList<Stock> getAll(int WarehouseID){
+        ArrayList<Stock> results = new ArrayList<Stock>();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + warehouseID + "= ?", new String[]{Integer.toString(WarehouseID)});
+        while (c.moveToNext()){
+            int Id = c.getInt(c.getColumnIndex(id));
+            String Type = c.getString(c.getColumnIndex(type));
+            int Quantity = c.getInt(c.getColumnIndex(quantity));
+            //int WarehouseID = c.getInt(c.getColumnIndex(quantity));
+            Stock s = new Stock(Id, Type, WarehouseID, Quantity);
             results.add(s);
         }
         return results;
