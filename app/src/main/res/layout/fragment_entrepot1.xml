@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,27 +20,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <SearchView
-        android:id="@+id/search_bar"
+        android:id="@+id/search_bar1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_below="@id/text_entrepot1"
+        android:layout_marginTop="20dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/search_bar"
-        android:layout_alignLeft="@id/search_bar"
-        android:layout_alignRight="@id/search_bar"
-        android:layout_centerHorizontal="true"
-        android:scrollbars="vertical"
-        android:id="@+id/recycler"
-
-        />
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/recyclerView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:context="com.modildev.mytestapplication1.RecyclerViewActivity"
+        android:layout_below="@id/search_bar1"/>
 
 
 </RelativeLayout>
