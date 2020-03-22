@@ -15,13 +15,11 @@ import java.util.List;
 public class ParameterManager {
     private static final String TABLE_NAME = "Parameters";
     public static final String id = "id";
-    public static final String iparameter = "iparameter";
-    public static final String sparameter = "sparameter";
+    public static final String parameter1 = "parameter1";
     public static final String CREATE_TABLE_PARAMETER = "CREATE TABLE "
             + TABLE_NAME + " ("
             + id + " INTEGER primary key AUTOINCREMENT, "
-            + iparameter + " INTEGER, "
-            + sparameter+ " TEXT);";
+            + parameter1 + " INTEGER);";
     private SQLiteDatabase db;
     private MySQLite myBase;
 
@@ -40,8 +38,7 @@ public class ParameterManager {
     public long addParameter(Parameter p){
         ContentValues values = new ContentValues();
         //values.put(id, s.getId());
-        values.put(iparameter, p.getIparameter());
-        values.put(sparameter, p.getSparameter());
+        values.put(parameter1, p.getParameter1());
         return db.insert(TABLE_NAME, null, values);
     }
 
@@ -65,16 +62,14 @@ public class ParameterManager {
         return max;
     }
 
-    public Parameter getLastP(){
+    public int getLastP(){
         int lastId = getLastId();
+        int lastP = 0;
         Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + id + "=?",new String[]{Integer.toString(lastId)});
         if (c.moveToFirst()){
-            int lastIntP = c.getInt(c.getColumnIndex(iparameter));
-            String lastStrP = c.getString(c.getColumnIndex(sparameter));
-            Parameter p = new Parameter(lastIntP, lastStrP);
-            return p;
+            lastP = c.getInt(c.getColumnIndex(parameter1));
         }
-        return null;
+        return lastP;
     }
 
 

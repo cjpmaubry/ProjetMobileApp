@@ -35,13 +35,14 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ParameterManager pm = new ParameterManager(getApplicationContext());
                 pm.open();
-                Parameter p = pm.getLastP();
+                //Parameter p = pm.getLastP();
+                int p = pm.getLastP();
                 pm.close();
 
                 String type = add_type.getText().toString();
                 int quantity = Integer.parseInt(add_quantity.getText().toString());
-                //int warehouseId = p.getIparameter();
-                Stock s = new Stock(type, quantity, 1);
+                //int warehouseId = p.getParameter1();
+                Stock s = new Stock(type, quantity, p);
                 StockManager sm = new StockManager(getApplicationContext());
                 sm.open();
                 sm.addStock(s);

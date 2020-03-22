@@ -49,7 +49,7 @@ public class Entrepot3Fragment extends Fragment {
             public void onClick(View v) {
                 ParameterManager pm = new ParameterManager(getContext());
                 pm.open();
-                pm.addParameter(new Parameter(3,""));
+                pm.addParameter(new Parameter(3));
                 pm.close();
                 Intent AddStockIntent = new Intent(getActivity(), AddActivity.class);
                 startActivity(AddStockIntent);
@@ -71,9 +71,9 @@ public class Entrepot3Fragment extends Fragment {
         sm.open();
         stockList = sm.getAll(3);
         sm.close();
-
+        ParameterManager pm = new ParameterManager(getContext());
         recyclerView = root.findViewById(R.id.recyclerView3);
-        adapter = new StockAdapter(stockList, sm);
+        adapter = new StockAdapter(stockList, sm, pm);
         recyclerView.setAdapter(adapter);
     }
 }

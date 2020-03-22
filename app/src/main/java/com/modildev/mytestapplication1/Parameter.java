@@ -2,18 +2,10 @@ package com.modildev.mytestapplication1;
 
 public class Parameter {
     private int id;
-    private int iparameter;
-    private String sparameter;
+    private int parameter1;
 
-    public Parameter(int id, int iparameter, String sparameter) {
-        this.id = id;
-        this.iparameter = iparameter;
-        this.sparameter = sparameter;
-    }
-
-    public Parameter(int iparameter, String sparameter) {
-        this.iparameter = iparameter;
-        this.sparameter = sparameter;
+    public Parameter(int parameter1) {
+        this.parameter1 = parameter1;
     }
 
     public int getId() {
@@ -24,19 +16,12 @@ public class Parameter {
         this.id = id;
     }
 
-    public int getIparameter() {
-        return iparameter;
+    public int getParameter1() {
+        return parameter1;
     }
 
-    public void setIparameter(int iparameter) {
-        this.iparameter = iparameter;
+    public void setParameter1(int parameter1) {
+        this.parameter1 = parameter1;
     }
 
-    public String getSparameter() {
-        return sparameter;
-    }
-
-    public void setSparameter(String sparameter) {
-        this.sparameter = sparameter;
-    }
 }
