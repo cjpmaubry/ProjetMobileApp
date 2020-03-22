@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Button settings;
-    SharedPreference sharedpref;
+    //SharedPreference sharedpref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
