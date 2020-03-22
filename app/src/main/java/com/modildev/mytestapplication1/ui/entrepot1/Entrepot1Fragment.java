@@ -2,11 +2,7 @@ package com.modildev.mytestapplication1.ui.entrepot1;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.modildev.mytestapplication1.Parameter;
 import com.modildev.mytestapplication1.ParameterManager;
 import com.modildev.mytestapplication1.R;
 import com.modildev.mytestapplication1.Stock;
@@ -50,12 +47,12 @@ public class Entrepot1Fragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*ParameterManager pm = new ParameterManager(getContext());
+                ParameterManager pm = new ParameterManager(getContext());
                 pm.open();
-                pm.addIntParameter(1);
-                pm.close();*/
-                Intent addStockIntent = new Intent(getActivity(), AddActivity.class);
-                startActivity(addStockIntent);
+                pm.addParameter(new Parameter(1,""));
+                pm.close();
+                Intent AddStockIntent = new Intent(getActivity(), AddActivity.class);
+                startActivity(AddStockIntent);
             }
         });
 

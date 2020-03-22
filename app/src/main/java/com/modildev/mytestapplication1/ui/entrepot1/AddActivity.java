@@ -9,11 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.modildev.mytestapplication1.MainActivity;
+import com.modildev.mytestapplication1.Parameter;
 import com.modildev.mytestapplication1.ParameterManager;
 import com.modildev.mytestapplication1.R;
 import com.modildev.mytestapplication1.Stock;
 import com.modildev.mytestapplication1.StockManager;
-import com.modildev.mytestapplication1.WarehouseManager;
 
 public class AddActivity extends AppCompatActivity {
     private EditText add_type;
@@ -33,18 +33,21 @@ public class AddActivity extends AppCompatActivity {
         add_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*ParameterManager pm = new ParameterManager(getApplicationContext());
+                ParameterManager pm = new ParameterManager(getApplicationContext());
                 pm.open();
-                int warehouseId = pm.getLastIntP();
+                Parameter p = pm.getLastP();
                 pm.close();
 
+                String type = add_type.getText().toString();
+                int quantity = Integer.parseInt(add_quantity.getText().toString());
+                //int warehouseId = p.getIparameter();
+                Stock s = new Stock(type, quantity, 1);
                 StockManager sm = new StockManager(getApplicationContext());
                 sm.open();
-                sm.addStock(new Stock(add_type.getText().toString(), Integer.parseInt(add_quantity.getText().toString()), warehouseId));
+                sm.addStock(s);
                 sm.close();
-                Intent backToWarehouse = new Intent(AddActivity.this, MainActivity.class);
-                startActivity(backToWarehouse);*/
-
+                Intent backHomeIntent = new Intent(AddActivity.this, MainActivity.class);
+                startActivity(backHomeIntent);
             }
         });
     }

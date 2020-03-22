@@ -13,15 +13,15 @@ import java.util.List;
 
 
 public class ParameterManager {
-    private static final String TABLE_NAME = "Stock";
+    private static final String TABLE_NAME = "Parameters";
     public static final String id = "id";
-    public static final String intP = "intparameter";
-    public static final String strP = "strParameter";
+    public static final String iparameter = "iparameter";
+    public static final String sparameter = "sparameter";
     public static final String CREATE_TABLE_PARAMETER = "CREATE TABLE "
             + TABLE_NAME + " ("
             + id + " INTEGER primary key AUTOINCREMENT, "
-            + intP + " INTEGER, "
-            + strP + " TEXT);";
+            + iparameter + " INTEGER, "
+            + sparameter+ " TEXT);";
     private SQLiteDatabase db;
     private MySQLite myBase;
 
@@ -37,46 +37,45 @@ public class ParameterManager {
         db.close();
     }
 
-    public long addIntParameter(int intParameter){
+    public long addParameter(Parameter p){
         ContentValues values = new ContentValues();
-        values.put(intP, intParameter);
-        values.put(strP, "");
+        //values.put(id, s.getId());
+        values.put(iparameter, p.getIparameter());
+        values.put(sparameter, p.getSparameter());
         return db.insert(TABLE_NAME, null, values);
     }
 
-    public long addStrParameter(String strParameter){
-        ContentValues values = new ContentValues();
-        values.put(intP, 0);
-        values.put(strP, strParameter);
-        return db.insert(TABLE_NAME, null, values);
-    }
-
-    private int getLastId(){
+    public int getLastId(){
         int lastId= 0;
-        Cursor c = db.rawQuery("SELECT MAX(" + id + ") FROM " + TABLE_NAME, null);
-        if (c.moveToFirst()){
-            lastId = c.getInt(c.getColumnIndex(id));
+        ArrayList<Integer> idList = new ArrayList<Integer>();
+        Cursor c = db.rawQuery("SELECT " + id + " FROM " + TABLE_NAME, null);
+        while (c.moveToNext()){
+            idList.add(c.getInt(c.getColumnIndex(id)));
         }
+        lastId = getMax(idList);
         return lastId;
     }
 
-    public int getLastIntP(){
-        int lastId = getLastId();
-        int lastIntP = 0;
-        Cursor c = db.rawQuery("SELECT " + intP + " FROM " + TABLE_NAME + " WHERE " + id + "=?",new String[]{Integer.toString(lastId)});
-        if (c.moveToFirst()){
-            lastIntP = c.getInt(c.getColumnIndex(intP));
+    public int getMax(ArrayList<Integer> list){
+        int max = 0;
+        for (int id: list){
+            if (id > max)
+                max = id;
         }
-        return lastIntP;
+        return max;
     }
 
-    public String getLastStrP(){
+    public Parameter getLastP(){
         int lastId = getLastId();
-        String lastStrP = "";
-        Cursor c = db.rawQuery("SELECT " + strP + " FROM " + TABLE_NAME + " WHERE " + id + "=?",new String[]{Integer.toString(lastId)});
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + id + "=?",new String[]{Integer.toString(lastId)});
         if (c.moveToFirst()){
-            lastStrP = c.getString(c.getColumnIndex(strP));
+            int lastIntP = c.getInt(c.getColumnIndex(iparameter));
+            String lastStrP = c.getString(c.getColumnIndex(sparameter));
+            Parameter p = new Parameter(lastIntP, lastStrP);
+            return p;
         }
-        return lastStrP;
+        return null;
     }
+
+
 }

@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.modildev.mytestapplication1.Parameter;
 import com.modildev.mytestapplication1.ParameterManager;
 import com.modildev.mytestapplication1.R;
 import com.modildev.mytestapplication1.Stock;
@@ -24,7 +25,6 @@ import com.modildev.mytestapplication1.StockManager;
 import com.modildev.mytestapplication1.ui.entrepot1.AddActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Entrepot2Fragment extends Fragment {
 
@@ -50,12 +50,13 @@ public class Entrepot2Fragment extends Fragment {
             public void onClick(View v) {
                 ParameterManager pm = new ParameterManager(getContext());
                 pm.open();
-                pm.addIntParameter(2);
+                pm.addParameter(new Parameter(2,""));
                 pm.close();
-                Intent addStockIntent = new Intent(getActivity(), AddActivity.class);
-                startActivity(addStockIntent);
+                Intent AddStockIntent = new Intent(getActivity(), AddActivity.class);
+                startActivity(AddStockIntent);
             }
         });
+
         searchView = root.findViewById(R.id.search_bar2);
 
 
