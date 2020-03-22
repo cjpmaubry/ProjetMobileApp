@@ -67,6 +67,11 @@ public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> {
         return stockList.size();
     }
 
+    public void filterList(ArrayList<Stock> filteredList){
+        stockList = filteredList;
+        notifyDataSetChanged();
+    }
+
     /*@Override
     public Filter getFilter() {
         return StockFilter;
