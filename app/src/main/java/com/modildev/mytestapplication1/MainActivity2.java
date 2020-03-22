@@ -12,8 +12,15 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity2 extends AppCompatActivity {
 
+    SharedPreference sharedpref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedpref = new SharedPreference(this);
+        if(sharedpref.loadNightModeState()==true) {
+            setTheme(R.style.darktheme);
+        }
+        else  setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         BottomNavigationView navView = findViewById(R.id.nav_view2);

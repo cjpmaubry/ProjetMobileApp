@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundcolor">#fcfcfc</item>
+        <item name="textcolor">#403E3E</item>
     </style>
 
     <style name="darktheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -13,6 +15,8 @@
         <item name="colorPrimary">#212121</item>
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="textcolor">#ffffff</item>
+        <item name="backgroundcolor">#303030</item>
 
     </style>
 

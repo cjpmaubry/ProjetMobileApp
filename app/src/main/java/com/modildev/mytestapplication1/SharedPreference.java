@@ -3,9 +3,7 @@ package com.modildev.mytestapplication1;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * Created by Aws on 21/12/2017.
- */
+
 
 public class SharedPreference {
     SharedPreferences mySharedPref ;
