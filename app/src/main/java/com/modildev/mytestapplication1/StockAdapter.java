@@ -1,5 +1,6 @@
 package com.modildev.mytestapplication1;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,12 @@ public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> {
 
     private List<Stock> stockList;
     private StockManager sm;
+    private ParameterManager pm;
 
-    public StockAdapter(List<Stock> stockList, StockManager stockManager) {
+    public StockAdapter(List<Stock> stockList, StockManager stockManager, ParameterManager parameterManager) {
         this.stockList = stockList;
         this.sm = stockManager;
+        this.pm = parameterManager;
     }
 
     @NonNull
@@ -36,7 +39,14 @@ public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> {
         stockViewHolder.edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                /*pm.open();
+                sm.open();
+                int Id = stockList.get(position).getId();
+                Stock s = sm.getStock(Id);
+                pm.addParameter(new Parameter(Id,s.getWarehouseID()));
+                pm.close();
+                sm.close();*/
+                //Intent EditIntent = new Intent(StockAdapter.this, EditActivity.class);
             }
         });
 

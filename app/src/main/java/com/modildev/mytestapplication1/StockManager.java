@@ -53,7 +53,7 @@ public class StockManager {
         return db.delete(TABLE_NAME, where, whereArgs);
     }
 
-    public int editStock(int ID, String newtype, int newQuantity, int newWarehouseID){
+    public int editStock(int ID, String newtype, int newQuantity){
         ContentValues values = new ContentValues();
         Stock s = getStock(ID);
         values.put(id, ID);
@@ -68,10 +68,7 @@ public class StockManager {
         else
             values.put(quantity, newQuantity);
 
-        if (newWarehouseID == -1)
-            values.put(warehouseID, s.getWarehouseID());
-        else
-            values.put(warehouseID, newWarehouseID);
+        values.put(warehouseID, s.getWarehouseID());
 
         String where = id + " = ?";
         String[] whereArgs = {s.getId()+""};
