@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.modildev.mytestapplication1.ParameterManager;
 import com.modildev.mytestapplication1.R;
 import com.modildev.mytestapplication1.Stock;
 import com.modildev.mytestapplication1.StockAdapter;
@@ -46,6 +47,10 @@ public class Entrepot3Fragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ParameterManager pm = new ParameterManager(getContext());
+                pm.open();
+                pm.addIntParameter(3);
+                pm.close();
                 Intent addStockIntent = new Intent(getActivity(), AddActivity.class);
                 startActivity(addStockIntent);
             }

@@ -9,7 +9,7 @@ public class NotepadManager {
     private static final String TABLE_NAME = "Notepad";
     public static final String id = "id";
     public static final String comment = "comment";
-    public static final String CREATE_TABLE_STOCK = "CREATE TABLE "
+    public static final String CREATE_TABLE_NOTEAPAD = "CREATE TABLE "
             + TABLE_NAME + " ("
             + id + " INTEGER primary key AUTOINCREMENT, "
             + comment + " TEXT)";

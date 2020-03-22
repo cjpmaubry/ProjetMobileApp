@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        WarehouseManager wm = new WarehouseManager(this);
+        /*WarehouseManager wm = new WarehouseManager(this);
         wm.open();
         ArrayList<Warehouse> warehouseArrayList = new ArrayList<Warehouse>();
         warehouseArrayList = wm.getAll();
@@ -55,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
             wm.addWarehouse(new Warehouse("Cupboard"));
             wm.addWarehouse(new Warehouse("Pentry"));
         }
-        wm.close(); 
+        wm.close();*/
 
-        /*StockManager sm = new StockManager(this);
+        StockManager sm = new StockManager(this);
         sm.open();
         sm.addStock(new Stock("Steak", 2, 3));
-        sm.close();*/
+        sm.close();
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
