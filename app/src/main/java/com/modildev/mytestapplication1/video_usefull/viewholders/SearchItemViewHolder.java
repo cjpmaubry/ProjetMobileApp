@@ -22,14 +22,14 @@ public class SearchItemViewHolder extends RecyclerView.ViewHolder {
 	public SearchItemViewHolder(@NonNull View itemView) {
 		super(itemView);
 		this.title = itemView.findViewById(R.id.title);
-		this.description = itemView.findViewById(R.id.description);
+		//this.description = itemView.findViewById(R.id.description);
 		this.thumbnail = itemView.findViewById(R.id.thumbnail);
 	}
 	
 	public void bind(final YouTubeSearchItem youTubeSearchItem) {
 		final Snippet snippet = youTubeSearchItem.getSnippet();
 		title.setText(snippet.getTitle());
-		description.setText(snippet.getDescription());
+		//description.setText(snippet.getDescription());
 
 		Glide.with(itemView).load(snippet.getThumbnailUrl()).into(thumbnail);
 
