@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             wm.addWarehouse(new Warehouse("Cupboard"));
             wm.addWarehouse(new Warehouse("Pentry"));
         }
-        wm.close();
+        wm.close(); 
 
         /*StockManager sm = new StockManager(this);
         sm.open();
