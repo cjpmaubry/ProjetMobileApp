@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 
 public class NotepadActivity extends Activity {
 
-    Button newButton,saveButton,openButton;
+    Button newButton,saveButton;
     EditText text;
 
     @Override
