@@ -19,9 +19,10 @@
     <string name="text_home2">Welcome to HomeManagementApp Section More info</string>
     <string name="button_home2">Management mode</string>
     <string name="button_notepad">Go to Notepad</string>
+    <string name="button_video">Watch Video</string>
 
     <string name="title_home">Home</string>
     <string name="title_notepad">Notepad</string>
-    <string name="title_notifications">Video ?</string>
+    <string name="title_notifications">Video</string>
 
 </resources>

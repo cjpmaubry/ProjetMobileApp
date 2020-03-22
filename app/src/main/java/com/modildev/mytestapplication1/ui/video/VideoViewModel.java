@@ -1,16 +1,16 @@
-package com.modildev.mytestapplication1.ui.notifications;
+package com.modildev.mytestapplication1.ui.video;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class VideoViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public VideoViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("Welcome to video module. If you click to the button you could see some video about good practice for storage");
     }
 
     public LiveData<String> getText() {
