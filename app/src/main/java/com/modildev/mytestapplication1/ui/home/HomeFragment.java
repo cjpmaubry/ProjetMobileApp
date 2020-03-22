@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.modildev.mytestapplication1.MainActivity;
 import com.modildev.mytestapplication1.MainActivity2;
 import com.modildev.mytestapplication1.R;
+import com.modildev.mytestapplication1.Setting;
 
 public class HomeFragment extends Fragment {
 
@@ -37,6 +38,7 @@ public class HomeFragment extends Fragment {
             }
         });
         initUI(root);
+        initUI2(root);
         return root;
     }
 
@@ -52,8 +54,24 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
     }
+        private void initUI2(View v) {
+            Button setting = (Button) v.findViewById(R.id.setting);
+            setting.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    // Change the Activity
+                    Intent intent = new Intent(getActivity(), Setting.class);
+                    startActivity(intent);
+
+                }
+            });
+        }
+
+
+
+
+
 }
 

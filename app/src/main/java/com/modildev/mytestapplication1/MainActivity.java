@@ -31,10 +31,16 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private Button secondactivity;
+    private Button settings;
+    SharedPreference sharedpref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*sharedpref = new SharedPreference(this);
+        if(sharedpref.loadNightModeState()==true) {
+            setTheme(R.style.darktheme);
+        }
+        else  setTheme(R.style.AppTheme);*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -55,25 +61,17 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+
+
+
 /*
-        BottomNavigationView navView = findViewById(R.id.nav_view2);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_notepad, R.id.navigation_notifications)
-                .build();
-        NavController navController2 = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController2, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController2);
-
-
-        secondactivity = findViewById(R.id.button);
+        settings = findViewById(R.id.action_settings);
         //Action when press the button nextWithResult
-        secondactivity.setOnClickListener(new View.OnClickListener() {
+        settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Change the Activity
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                Intent intent = new Intent(MainActivity.this, Setting.class);
 
             }
         });*/
