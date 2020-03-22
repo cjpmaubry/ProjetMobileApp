@@ -8,10 +8,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import com.modildev.mytestapplication1.WatchActivity;
 import com.modildev.mytestapplication1.R;
 import com.modildev.mytestapplication1.video_usefull.models.Snippet;
 import com.modildev.mytestapplication1.video_usefull.models.YouTubeSearchItem;
-import com.modildev.mytestapplication1.video_usefull.viewholders.SearchItemViewHolder;
 
 public class SearchItemViewHolder extends RecyclerView.ViewHolder {
 	
@@ -33,7 +33,12 @@ public class SearchItemViewHolder extends RecyclerView.ViewHolder {
 
 		Glide.with(itemView).load(snippet.getThumbnailUrl()).into(thumbnail);
 
-
+		itemView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				WatchActivity.start(v.getContext(), youTubeSearchItem.getId().getVideoId());
+			}
+		});
 		
 
 
