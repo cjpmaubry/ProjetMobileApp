@@ -72,7 +72,7 @@ public class Entrepot1Fragment extends Fragment {
         sm.close();
 
         recyclerView = root.findViewById(R.id.recyclerView1);
-        adapter = new StockAdapter(stockList);
+        adapter = new StockAdapter(stockList, sm);
         recyclerView.setAdapter(adapter);
     }
 }

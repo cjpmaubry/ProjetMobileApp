@@ -39,7 +39,7 @@ public class Entrepot3Fragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_entrepot3, container, false);
         final TextView textView = root.findViewById(R.id.text_entrepot3);
         searchView = root.findViewById(R.id.search_bar3);
-        addButton = root.findViewById(R.id.add_button2);
+        addButton = root.findViewById(R.id.add_button3);
 
         initRecyclerView(root);
 
@@ -64,11 +64,11 @@ public class Entrepot3Fragment extends Fragment {
     private void initRecyclerView(View root){
         StockManager sm = new StockManager(getContext());
         sm.open();
-        stockList = sm.getAll(1);
+        stockList = sm.getAll(3);
         sm.close();
 
         recyclerView = root.findViewById(R.id.recyclerView3);
-        adapter = new StockAdapter(stockList);
+        adapter = new StockAdapter(stockList, sm);
         recyclerView.setAdapter(adapter);
     }
 }

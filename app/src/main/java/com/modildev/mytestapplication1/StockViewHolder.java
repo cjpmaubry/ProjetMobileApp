@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 class StockViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView type;
-    private TextView quantity;
-    private Button edit_button;
-    private Button remove_button;
+    public TextView type;
+    public TextView quantity;
+    public Button edit_button;
+    public Button remove_button;
 
 
     public StockViewHolder(@NonNull View itemView) {

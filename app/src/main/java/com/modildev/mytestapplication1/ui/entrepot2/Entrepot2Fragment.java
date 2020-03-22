@@ -66,11 +66,11 @@ public class Entrepot2Fragment extends Fragment {
     private void initRecyclerView(View root){
         StockManager sm = new StockManager(getContext());
         sm.open();
-        stockList = sm.getAll(1);
+        stockList = sm.getAll(2);
         sm.close();
 
         recyclerView = root.findViewById(R.id.recyclerView2);
-        adapter = new StockAdapter(stockList);
+        adapter = new StockAdapter(stockList, sm);
         recyclerView.setAdapter(adapter);
     }
 }

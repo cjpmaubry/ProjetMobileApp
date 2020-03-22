@@ -12,15 +12,14 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> implements Filterable {
+public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> {
 
     private List<Stock> stockList;
-    private List<Stock> stockListFull;
+    private StockManager sm;
 
-
-    public StockAdapter(List<Stock> stockList) {
+    public StockAdapter(List<Stock> stockList, StockManager stockManager) {
         this.stockList = stockList;
-        this.stockListFull = new ArrayList<>(stockList);
+        this.sm = stockManager;
     }
 
     @NonNull
@@ -31,8 +30,26 @@ public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> implemen
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StockViewHolder studentViewHolder, int position) {
-        studentViewHolder.bind(stockList.get(position));
+    public void onBindViewHolder(@NonNull StockViewHolder stockViewHolder, final int position) {
+        stockViewHolder.bind(stockList.get(position));
+
+        stockViewHolder.edit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        stockViewHolder.remove_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sm.open();
+                int Id = stockList.get(position).getId();
+                sm.deleteStock(Id);
+                stockList.remove(position);
+                sm.close();
+            }
+        });
     }
 
     @Override
@@ -40,7 +57,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> implemen
         return stockList.size();
     }
 
-    @Override
+    /*@Override
     public Filter getFilter() {
         return StockFilter;
     }
@@ -71,5 +88,5 @@ public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> implemen
             stockList.addAll((ArrayList)results.values);
             notifyDataSetChanged();
         }
-    };
+    };*/
 }

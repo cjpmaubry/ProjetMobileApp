@@ -36,13 +36,14 @@ public class AddActivity extends AppCompatActivity {
                 wm.open();
                 int warehouseId = 0;
 
-                wm.getId(add_warehouse.getText().toString());
+                warehouseId = wm.getId(add_warehouse.getText().toString());
                 wm.close();
                 StockManager sm = new StockManager(getApplicationContext());
                 sm.open();
                 sm.addStock(new Stock(add_type.getText().toString(), Integer.parseInt(add_quantity.getText().toString()), warehouseId));
                 sm.close();
                 Intent backToWarehouse = new Intent(AddActivity.this, MainActivity.class);
+                startActivity(backToWarehouse);
 
             }
         });
