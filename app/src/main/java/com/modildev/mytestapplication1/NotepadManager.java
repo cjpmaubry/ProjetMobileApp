@@ -68,4 +68,5 @@ public class NotepadManager {
         }
         return null;
     }
+    
 }
