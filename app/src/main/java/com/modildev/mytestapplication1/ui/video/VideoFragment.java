@@ -1,9 +1,11 @@
 package com.modildev.mytestapplication1.ui.video;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,7 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.modildev.mytestapplication1.NotepadActivity;
 import com.modildev.mytestapplication1.R;
+import com.modildev.mytestapplication1.VideoActivity;
 
 public class VideoFragment extends Fragment {
 
@@ -30,6 +34,23 @@ public class VideoFragment extends Fragment {
                 textView.setText(s);
             }
         });
-        return root;
+        initUI(root);
+        return(root);
+    }
+
+    private void initUI(View v) {
+        Button button = (Button) v.findViewById(R.id.btn_video_activity);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // Change the Activity
+                Intent intent = new Intent(getActivity(), VideoActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
     }
 }

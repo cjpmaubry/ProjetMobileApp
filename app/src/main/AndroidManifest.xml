@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.modildev.mytestapplication1">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_round"
@@ -10,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.entrepot1.AddActivity"></activity>
+        <activity android:name=".VideoActivity" />
         <activity android:name=".MainActivity2" />
         <activity android:name=".Setting" />
         <activity android:name=".NotepadActivity" />
