@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.modildev.mytestapplication1.MainActivity;
 import com.modildev.mytestapplication1.R;
 import com.modildev.mytestapplication1.Stock;
 import com.modildev.mytestapplication1.StockManager;
@@ -34,14 +35,14 @@ public class AddActivity extends AppCompatActivity {
                 WarehouseManager wm = new WarehouseManager(getApplicationContext());
                 wm.open();
                 int warehouseId = 0;
-                
+
                 wm.getId(add_warehouse.getText().toString());
                 wm.close();
                 StockManager sm = new StockManager(getApplicationContext());
                 sm.open();
                 sm.addStock(new Stock(add_type.getText().toString(), Integer.parseInt(add_quantity.getText().toString()), warehouseId));
                 sm.close();
-                Intent backToWarehouse;
+                Intent backToWarehouse = new Intent(AddActivity.this, MainActivity.class);
 
             }
         });

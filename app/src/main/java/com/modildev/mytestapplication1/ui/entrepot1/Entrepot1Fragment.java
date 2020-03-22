@@ -1,5 +1,6 @@
 package com.modildev.mytestapplication1.ui.entrepot1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -48,7 +49,8 @@ public class Entrepot1Fragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent addStockIntent = new Intent(getActivity(), AddActivity.class);
+                startActivity(addStockIntent);
             }
         });
         searchView = root.findViewById(R.id.search_bar1);

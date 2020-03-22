@@ -1,9 +1,11 @@
 package com.modildev.mytestapplication1.ui.entrepot3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -18,6 +20,7 @@ import com.modildev.mytestapplication1.R;
 import com.modildev.mytestapplication1.Stock;
 import com.modildev.mytestapplication1.StockAdapter;
 import com.modildev.mytestapplication1.StockManager;
+import com.modildev.mytestapplication1.ui.entrepot1.AddActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,21 +31,26 @@ public class Entrepot3Fragment extends Fragment {
     private SearchView searchView;
     private ArrayList<Stock> stockList = new ArrayList<Stock>();
     private RecyclerView recyclerView;
+    private StockAdapter adapter;
+    private Button addButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         toolsViewModel = ViewModelProviders.of(this).get(Entrepot3ViewModel.class);
         View root = inflater.inflate(R.layout.fragment_entrepot3, container, false);
         final TextView textView = root.findViewById(R.id.text_entrepot3);
-
         searchView = root.findViewById(R.id.search_bar3);
+        addButton = root.findViewById(R.id.add_button2);
 
-        StockManager sm = new StockManager(getContext());
-        sm.open();
-        stockList = sm.getAll(3);
-        sm.close();
+        initRecyclerView(root);
 
-        RecyclerView recyclerView = root.findViewById(R.id.recyclerView3);
-        recyclerView.setAdapter(new StockAdapter(stockList));
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addStockIntent = new Intent(getActivity(), AddActivity.class);
+                startActivity(addStockIntent);
+            }
+        });
+        searchView = root.findViewById(R.id.search_bar3);
 
         toolsViewModel.getText().observe(this, new Observer<String>() {
             @Override
@@ -51,5 +59,16 @@ public class Entrepot3Fragment extends Fragment {
             }
         });
         return root;
+    }
+
+    private void initRecyclerView(View root){
+        StockManager sm = new StockManager(getContext());
+        sm.open();
+        stockList = sm.getAll(1);
+        sm.close();
+
+        recyclerView = root.findViewById(R.id.recyclerView3);
+        adapter = new StockAdapter(stockList);
+        recyclerView.setAdapter(adapter);
     }
 }
