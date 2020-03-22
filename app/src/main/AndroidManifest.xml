@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.entrepot1.addActivity"></activity>
+        <activity android:name=".ui.entrepot1.AddActivity"></activity>
         <activity android:name=".MainActivity2" />
         <activity android:name=".Setting" />
         <activity android:name=".NotepadActivity" />

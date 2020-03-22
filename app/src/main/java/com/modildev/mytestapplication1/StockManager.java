@@ -119,6 +119,8 @@ public class StockManager {
         return results;
     }
 
+
+
     public Cursor getStocks(){
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }

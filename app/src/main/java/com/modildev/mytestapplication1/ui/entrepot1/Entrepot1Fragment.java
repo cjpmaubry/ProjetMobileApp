@@ -48,8 +48,7 @@ public class Entrepot1Fragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StockManager sm = new StockManager(getContext());
-                sm.open();
+
             }
         });
         searchView = root.findViewById(R.id.search_bar1);

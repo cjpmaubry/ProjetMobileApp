@@ -91,6 +91,17 @@ public class WarehouseManager {
         return results;
     }
 
+    public int getId(String warehouseName){
+        int Id=0;
+        if (warehouseName != null && !warehouseName.equals("")){
+            Cursor c = db.rawQuery("SELECT " + id + " FROM " + TABLE_NAME + " WHERE " + name + "=?", new String[]{warehouseName});
+            if (c.moveToFirst()){
+                Id = c.getInt(c.getColumnIndex(id));
+            }
+        }
+        return Id;
+    }
+
     public Cursor getWarehouses(){
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
