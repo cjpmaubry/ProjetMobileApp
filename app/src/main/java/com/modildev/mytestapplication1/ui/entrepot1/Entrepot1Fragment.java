@@ -38,6 +38,7 @@ public class Entrepot1Fragment extends Fragment {
     private Button addButton;
 
 
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         galleryViewModel = ViewModelProviders.of(this).get(Entrepot1ViewModel.class);

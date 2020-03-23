@@ -22,6 +22,15 @@
             android:gravity="top"
             android:id="@+id/text"
             android:scrollbars = "vertical"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:scrollbars="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
     </LinearLayout>
 
 
@@ -36,15 +45,13 @@
             android:layout_height="wrap_content"
             android:text="New"
             android:id="@+id/newButton"
-            android:layout_weight="1"
-            android:onClick="buttonAction"/>
+            android:layout_weight="1"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Save"
             android:id="@+id/saveButton"
-            android:onClick="buttonAction"
             android:layout_weight="1"/>
 
     </LinearLayout>
