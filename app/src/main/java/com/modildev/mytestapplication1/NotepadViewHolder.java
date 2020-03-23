@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class NotepadViewHolder extends RecyclerView.ViewHolder {
-    private TextView comment;
+    public TextView comment;
 
     public NotepadViewHolder(View view){
         super(view);

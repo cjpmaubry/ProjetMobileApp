@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 public class NotepadManager {
     private static final String TABLE_NAME = "Notepad";
     public static final String id = "id";
@@ -67,6 +69,18 @@ public class NotepadManager {
             return n;
         }
         return null;
+    }
+
+    public ArrayList<Notepad> getAll(){
+        ArrayList<Notepad> noteList = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME,null);
+        while (c.moveToNext()){
+            int Id = c.getInt(c.getColumnIndex(id));
+            String Comment = c.getString(c.getColumnIndex(comment));
+            Notepad n = new Notepad(Id, Comment);
+            noteList.add(n);
+        }
+        return noteList;
     }
 
 }

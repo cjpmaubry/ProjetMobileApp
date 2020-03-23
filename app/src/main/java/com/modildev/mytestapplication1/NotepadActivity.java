@@ -9,8 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 
 public class NotepadActivity extends Activity {
@@ -19,6 +23,11 @@ public class NotepadActivity extends Activity {
     EditText text;
     SharedPreference sharedpref;
     NotepadManager nm;
+    RecyclerView recyclerView;
+    ArrayList<Notepad> noteList;
+    RecyclerView.LayoutManager layoutManager;
+    NotepadAdapter adapter;
+    LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +41,9 @@ public class NotepadActivity extends Activity {
         newButton=(Button)findViewById(R.id.newButton);
         saveButton=(Button)findViewById(R.id.saveButton);
         text=(EditText)findViewById(R.id.text);
-        nm = new NotepadManager(getApplicationContext());
+
+
+        initrecyclerView();
 
         newButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +62,20 @@ public class NotepadActivity extends Activity {
                 text.setText("");
             }
         });
+    }
+
+    private void initrecyclerView(){
+        nm = new NotepadManager(getApplicationContext());
+        nm.open();
+        noteList = nm.getAll();
+        nm.close();
+        newButton.setText(Integer.toString(noteList.size()));
+        recyclerView = (RecyclerView)findViewById(R.id.notepadRecyclerView);
+        layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new NotepadAdapter(noteList);
+        linearLayoutManager = new LinearLayoutManager(NotepadActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
     }
 
     /*public void buttonAction(View v) {

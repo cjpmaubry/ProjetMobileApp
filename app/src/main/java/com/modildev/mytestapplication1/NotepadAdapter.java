@@ -19,7 +19,17 @@ public class NotepadAdapter extends RecyclerView.Adapter<NotepadViewHolder> {
     @NonNull
     @Override
     public NotepadViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.);
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notepad_item,parent,false);
+        return new NotepadViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull NotepadViewHolder holder, int position) {
+        holder.comment.setText(noteList.get(position).getComment());
+    }
+
+    @Override
+    public int getItemCount() {
+        return noteList.size();
     }
 }
