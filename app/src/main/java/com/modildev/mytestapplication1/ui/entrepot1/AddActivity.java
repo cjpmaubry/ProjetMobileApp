@@ -15,6 +15,8 @@ import com.modildev.mytestapplication1.ParameterManager;
 import com.modildev.mytestapplication1.R;
 import com.modildev.mytestapplication1.Stock;
 import com.modildev.mytestapplication1.StockManager;
+import com.modildev.mytestapplication1.ui.entrepot2.Entrepot2Fragment;
+import com.modildev.mytestapplication1.ui.entrepot3.Entrepot3Fragment;
 
 public class AddActivity extends AppCompatActivity {
     private EditText add_type;
@@ -57,8 +59,18 @@ public class AddActivity extends AppCompatActivity {
                         sm.open();
                         sm.addStock(s);
                         sm.close();
-                        Intent backHomeIntent = new Intent(AddActivity.this, MainActivity.class);
-                        startActivity(backHomeIntent);
+                        if (p == 1){
+                            Intent updateIntent = new Intent(AddActivity.this, Entrepot1Fragment.class);
+                            startActivity(updateIntent);
+                        }
+                        if (p == 2){
+                            Intent updateIntent = new Intent(AddActivity.this, Entrepot2Fragment.class);
+                            startActivity(updateIntent);
+                        }
+                        if (p == 3){
+                            Intent updateIntent = new Intent(AddActivity.this, Entrepot3Fragment.class);
+                            startActivity(updateIntent);
+                        }
                     }
                     else{
                         Toast.makeText(getApplicationContext(), "the quantity must be positive ",Toast.LENGTH_LONG).show();

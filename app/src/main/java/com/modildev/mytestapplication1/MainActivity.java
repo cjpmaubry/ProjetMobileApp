@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private Button settings;
     //SharedPreference sharedpref;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /*sharedpref = new SharedPreference(this);
