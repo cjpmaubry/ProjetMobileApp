@@ -35,7 +35,7 @@ public class VideoActivity extends AppCompatActivity {
     private static final String TAG = "VideoActivity";
     private static final String API_KEY = "AIzaSyCHsI-KRdev78EduaFdBO57-o6Hg5UfuTU";
 
-    private EditText editText;
+
     private RecyclerView recyclerView;
     private YouTubeService service;
 
@@ -44,7 +44,7 @@ public class VideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
-        editText = findViewById(R.id.editText);
+
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
@@ -56,24 +56,9 @@ public class VideoActivity extends AppCompatActivity {
 
         service = retrofit.create(YouTubeService.class);
 
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+        launchSearch("astuce de rangement");
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() >= 0) {
-                    launchSearch(s.toString());
-                } else {
-                    launchSearch("");
-                }
-            }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
 
     }
 
