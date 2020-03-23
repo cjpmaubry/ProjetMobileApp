@@ -36,19 +36,19 @@ public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> {
     public void onBindViewHolder(@NonNull StockViewHolder stockViewHolder, final int position) {
         stockViewHolder.bind(stockList.get(position));
 
-        stockViewHolder.edit_button.setOnClickListener(new View.OnClickListener() {
+        /*stockViewHolder.edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*pm.open();
+                pm.open();
                 sm.open();
                 int Id = stockList.get(position).getId();
                 Stock s = sm.getStock(Id);
                 pm.addParameter(new Parameter(Id,s.getWarehouseID()));
                 pm.close();
-                sm.close();*/
+                sm.close();
                 //Intent EditIntent = new Intent(StockAdapter.this, EditActivity.class);
             }
-        });
+        });*/
 
         stockViewHolder.remove_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,37 +71,4 @@ public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> {
         stockList = filteredList;
         notifyDataSetChanged();
     }
-
-    /*@Override
-    public Filter getFilter() {
-        return StockFilter;
-    }
-
-    private Filter StockFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<Stock> filteredList = new ArrayList<>();
-            if (constraint == null || constraint.length() == 0){
-                filteredList.addAll(stockListFull);
-            }
-            else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
-                for (Stock stock: stockListFull){
-                    if (stock.getType().toLowerCase().contains(filterPattern)){
-                        filteredList.add(stock);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            stockList.clear();
-            stockList.addAll((ArrayList)results.values);
-            notifyDataSetChanged();
-        }
-    };*/
 }

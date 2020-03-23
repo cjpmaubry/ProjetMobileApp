@@ -20,7 +20,7 @@ class StockViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         type = itemView.findViewById(R.id.type);
         quantity = itemView.findViewById(R.id.quantity);
-        edit_button = itemView.findViewById(R.id.edit_button);
+        //edit_button = itemView.findViewById(R.id.edit_button);
         remove_button = itemView.findViewById(R.id.remove_button);
     }
 
@@ -28,11 +28,5 @@ class StockViewHolder extends RecyclerView.ViewHolder {
         type.setText(s.getType());
         quantity.setText(Integer.toString(s.getQuantity()));
 
-        remove_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 }

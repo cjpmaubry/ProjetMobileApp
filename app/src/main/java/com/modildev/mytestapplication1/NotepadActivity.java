@@ -18,6 +18,7 @@ public class NotepadActivity extends Activity {
     Button newButton,saveButton;
     EditText text;
     SharedPreference sharedpref;
+    NotepadManager nm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +32,28 @@ public class NotepadActivity extends Activity {
         newButton=(Button)findViewById(R.id.newButton);
         saveButton=(Button)findViewById(R.id.saveButton);
         text=(EditText)findViewById(R.id.text);
+        nm = new NotepadManager(getApplicationContext());
+
+        newButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText("");
+            }
+        });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nm.open();
+                nm.addComment(new Notepad(text.getText().toString()));
+                nm.close();
+                Toast.makeText(getApplicationContext(), "Comment saved",Toast.LENGTH_LONG).show();
+                text.setText("");
+            }
+        });
     }
 
-    public void buttonAction(View v) {
+    /*public void buttonAction(View v) {
         final EditText fileName=new EditText(this);
         AlertDialog.Builder ad=new AlertDialog.Builder(this);
         ad.setView(fileName);
@@ -68,5 +88,5 @@ public class NotepadActivity extends Activity {
         if(v.getId()==R.id.newButton) {
             text.setText("");
         }
-    }
+    }*/
 }

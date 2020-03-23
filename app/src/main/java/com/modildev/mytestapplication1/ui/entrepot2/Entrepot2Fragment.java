@@ -2,10 +2,13 @@ package com.modildev.mytestapplication1.ui.entrepot2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -29,7 +32,7 @@ import java.util.ArrayList;
 public class Entrepot2Fragment extends Fragment {
 
     private Entrepot2ViewModel slideshowViewModel;
-    private SearchView searchView;
+    private EditText searchView;
     private ArrayList<Stock> stockList = new ArrayList<Stock>();
     private RecyclerView recyclerView;
     private StockAdapter adapter;
@@ -57,7 +60,22 @@ public class Entrepot2Fragment extends Fragment {
             }
         });
 
-        searchView = root.findViewById(R.id.search_bar2);
+        searchView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
 
 
         slideshowViewModel.getText().observe(this, new Observer<String>() {
@@ -78,5 +96,16 @@ public class Entrepot2Fragment extends Fragment {
         recyclerView = root.findViewById(R.id.recyclerView2);
         adapter = new StockAdapter(stockList, sm, pm);
         recyclerView.setAdapter(adapter);
+    }
+
+    private void filter(String text){
+        ArrayList<Stock> filteredList = new ArrayList<>();
+        for (Stock stock: stockList){
+            if (stock.getType().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(stock);
+            }
+        }
+
+        adapter.filterList(filteredList);
     }
 }
