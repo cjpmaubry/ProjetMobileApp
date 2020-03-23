@@ -17,9 +17,14 @@ public class NotepadActivity extends Activity {
 
     Button newButton,saveButton;
     EditText text;
+    SharedPreference sharedpref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedpref = new SharedPreference(this);
+        if(sharedpref.loadNightModeState()==true) {
+            setTheme(R.style.darktheme);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notepad);
 

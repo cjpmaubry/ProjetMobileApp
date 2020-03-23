@@ -22,6 +22,7 @@ public class WatchActivity extends YouTubeBaseActivity implements YouTubePlayer.
 	private TextView textView;
 	private YouTubePlayer youTubePlayer;
 	private String GOOGLE_API_KEY = "AIzaSyCHsI-KRdev78EduaFdBO57-o6Hg5UfuTU";
+	SharedPreference sharedpref;
 	
 	public static void start(Context context, String videoId) {
 		Intent intent = new Intent(context, WatchActivity.class);
@@ -31,6 +32,10 @@ public class WatchActivity extends YouTubeBaseActivity implements YouTubePlayer.
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		sharedpref = new SharedPreference(this);
+		if(sharedpref.loadNightModeState()==true) {
+			setTheme(R.style.darktheme);
+		}
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_watch);
 		Intent intent = getIntent();
