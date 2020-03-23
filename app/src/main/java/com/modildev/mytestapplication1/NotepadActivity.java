@@ -55,11 +55,17 @@ public class NotepadActivity extends Activity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nm.open();
-                nm.addComment(new Notepad(text.getText().toString()));
-                nm.close();
-                Toast.makeText(getApplicationContext(), "Comment saved",Toast.LENGTH_LONG).show();
-                text.setText("");
+                String comment = text.getText().toString();
+                if (!comment.equals("")) {
+                    nm.open();
+                    nm.addComment(new Notepad(text.getText().toString()));
+                    nm.close();
+                    Toast.makeText(getApplicationContext(), "Comment saved", Toast.LENGTH_LONG).show();
+                    text.setText("");
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "you cannot enter a null comment ",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.modildev.mytestapplication1.MainActivity;
 import com.modildev.mytestapplication1.Parameter;
@@ -40,15 +41,29 @@ public class AddActivity extends AppCompatActivity {
                 pm.close();
 
                 String type = add_type.getText().toString();
-                int quantity = Integer.parseInt(add_quantity.getText().toString());
-                //int warehouseId = p.getParameter1();
-                Stock s = new Stock(type, quantity, p);
-                StockManager sm = new StockManager(getApplicationContext());
-                sm.open();
-                sm.addStock(s);
-                sm.close();
-                Intent backHomeIntent = new Intent(AddActivity.this, MainActivity.class);
-                startActivity(backHomeIntent);
+                String q = add_quantity.getText().toString();
+
+                //Toast.makeText(getApplicationContext(), "you cannot enter a null type or quantity ",Toast.LENGTH_LONG).show();
+                if (type.equals("") || q.equals("")) {
+                    Toast.makeText(getApplicationContext(), "you cannot enter a null type or quantity ",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    int quantity = Integer.parseInt(q);
+                    if (quantity > 0) {
+                        //int warehouseId = p.getParameter1();
+                        Stock s = new Stock(type, quantity, p);
+                        StockManager sm = new StockManager(getApplicationContext());
+                        sm.open();
+                        sm.addStock(s);
+                        sm.close();
+                        Intent backHomeIntent = new Intent(AddActivity.this, MainActivity.class);
+                        startActivity(backHomeIntent);
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "the quantity must be positive ",Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         });
     }
