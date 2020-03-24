@@ -1,6 +1,8 @@
 package com.modildev.mytestapplication1.ui.entrepot1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,18 +61,10 @@ public class AddActivity extends AppCompatActivity {
                         sm.open();
                         sm.addStock(s);
                         sm.close();
-                        if (p == 1){
-                            Intent updateIntent = new Intent(AddActivity.this, Entrepot1Fragment.class);
-                            startActivity(updateIntent);
-                        }
-                        if (p == 2){
-                            Intent updateIntent = new Intent(AddActivity.this, Entrepot2Fragment.class);
-                            startActivity(updateIntent);
-                        }
-                        if (p == 3){
-                            Intent updateIntent = new Intent(AddActivity.this, Entrepot3Fragment.class);
-                            startActivity(updateIntent);
-                        }
+                        Toast.makeText(getApplicationContext(), "Item added ",Toast.LENGTH_LONG).show();
+                        add_quantity.setText("");
+                        add_type.setText("");
+
                     }
                     else{
                         Toast.makeText(getApplicationContext(), "the quantity must be positive ",Toast.LENGTH_LONG).show();

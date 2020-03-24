@@ -36,7 +36,7 @@ public class Entrepot1Fragment extends Fragment {
     private RecyclerView recyclerView;
     private StockAdapter adapter;
     private Button addButton;
-
+    private Button updateButton;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class Entrepot1Fragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_entrepot1);
         searchView = root.findViewById(R.id.search_bar1);
         addButton = root.findViewById(R.id.add_button1);
+        updateButton = root.findViewById(R.id.update_button1);
 
         initRecyclerView(root);
         searchView.addTextChangedListener(new TextWatcher() {
@@ -74,6 +75,13 @@ public class Entrepot1Fragment extends Fragment {
                 pm.close();
                 Intent AddStockIntent = new Intent(getActivity(), AddActivity.class);
                 startActivity(AddStockIntent);
+            }
+        });
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().recreate();
             }
         });
 

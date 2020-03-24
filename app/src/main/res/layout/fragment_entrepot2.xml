@@ -54,7 +54,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/add_button2"
         android:layout_below="@id/search_bar2"
-        android:text="Add"/>
+        android:text="Add"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/update_button2"
+        android:layout_toRightOf="@id/add_button2"
+        android:layout_below="@id/search_bar2"
+        android:text="Update"/>
 
     <androidx.recyclerview.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"

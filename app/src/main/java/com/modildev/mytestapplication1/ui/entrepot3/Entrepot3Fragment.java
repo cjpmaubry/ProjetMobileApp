@@ -37,6 +37,7 @@ public class Entrepot3Fragment extends Fragment {
     private RecyclerView recyclerView;
     private StockAdapter adapter;
     private Button addButton;
+    private Button updateButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         toolsViewModel = ViewModelProviders.of(this).get(Entrepot3ViewModel.class);
@@ -44,7 +45,7 @@ public class Entrepot3Fragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_entrepot3);
         searchView = root.findViewById(R.id.search_bar3);
         addButton = root.findViewById(R.id.add_button3);
-
+        updateButton = root.findViewById(R.id.update_button3);
         initRecyclerView(root);
 
         searchView.addTextChangedListener(new TextWatcher() {
@@ -75,6 +76,14 @@ public class Entrepot3Fragment extends Fragment {
                 startActivity(AddStockIntent);
             }
         });
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().recreate();
+            }
+        });
+
         searchView = root.findViewById(R.id.search_bar3);
 
         toolsViewModel.getText().observe(this, new Observer<String>() {

@@ -58,6 +58,8 @@ public class StockAdapter extends RecyclerView.Adapter<StockViewHolder> {
                 sm.deleteStock(Id);
                 stockList.remove(position);
                 sm.close();
+                
+
             }
         });
     }
