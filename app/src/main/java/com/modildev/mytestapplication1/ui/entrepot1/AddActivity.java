@@ -23,7 +23,6 @@ import com.modildev.mytestapplication1.ui.entrepot3.Entrepot3Fragment;
 public class AddActivity extends AppCompatActivity {
     private EditText add_type;
     private EditText add_quantity;
-    //private EditText add_warehouse;
     private Button add_submit;
 
     @Override
@@ -32,7 +31,6 @@ public class AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
         add_quantity = (EditText)findViewById(R.id.add_quantity);
         add_type = (EditText) findViewById(R.id.add_type);
-        //add_warehouse = (EditText)findViewById(R.id.add_warehouse_name);
         add_submit = (Button)findViewById(R.id.add_submit);
 
         add_submit.setOnClickListener(new View.OnClickListener() {
@@ -40,14 +38,12 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ParameterManager pm = new ParameterManager(getApplicationContext());
                 pm.open();
-                //Parameter p = pm.getLastP();
                 int p = pm.getLastP();
                 pm.close();
 
                 String type = add_type.getText().toString();
                 String q = add_quantity.getText().toString();
 
-                //Toast.makeText(getApplicationContext(), "you cannot enter a null type or quantity ",Toast.LENGTH_LONG).show();
                 if (type.equals("") || q.equals("")) {
                     Toast.makeText(getApplicationContext(), "you cannot enter a null type or quantity ",Toast.LENGTH_LONG).show();
                 }
@@ -55,7 +51,6 @@ public class AddActivity extends AppCompatActivity {
                 {
                     int quantity = Integer.parseInt(q);
                     if (quantity > 0) {
-                        //int warehouseId = p.getParameter1();
                         Stock s = new Stock(type, quantity, p);
                         StockManager sm = new StockManager(getApplicationContext());
                         sm.open();

@@ -27,15 +27,12 @@ public class EditActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ParameterManager pm = new ParameterManager(getApplicationContext());
                 pm.open();
-                //Parameter p = pm.getLastP();
                 pm.close();
 
-                //int Id = p.getId();
                 String NewType = newType.getText().toString();
                 int NewQuantity = Integer.parseInt(newQuantity.getText().toString());
                 StockManager sm = new StockManager(getApplicationContext());
                 sm.open();
-                //sm.editStock(Id, NewType, NewQuantity);
                 sm.close();
                 Intent backHomeIntent= new Intent(EditActivity.this, MainActivity.class);
                 startActivity(backHomeIntent);

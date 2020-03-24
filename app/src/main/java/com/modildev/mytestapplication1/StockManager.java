@@ -17,7 +17,7 @@ public class StockManager {
     public static final String type = "type";
     public static final String quantity = "quantity";
     public static final String warehouseID = "warehouseID";
-    public static final String CREATE_TABLE_STOCK = "CREATE TABLE "
+    public static final String CREATE_TABLE_STOCK = "CREATE TABLE "    //creation script
             + TABLE_NAME + " ("
             + id + " INTEGER primary key AUTOINCREMENT, "
             + type + " TEXT, "
@@ -75,7 +75,7 @@ public class StockManager {
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
-    public Stock getStock(int ID){
+    public Stock getStock(int ID){       //gets a stock using its id
         Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + id + "=?", new String[]{Integer.toString(ID)});
         if (c.moveToFirst()){
             //int Id = c.getInt(c.getColumnIndex(id));
@@ -88,21 +88,7 @@ public class StockManager {
         return null;
     }
 
-    public ArrayList<Stock> searchStock(String keyword){
-        ArrayList<Stock> results = new ArrayList<Stock>();
-        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + type + " LIKE ?", new String[]{"%"+keyword+"%"});
-        if (c.moveToNext()){
-            int Id = c.getInt(c.getColumnIndex(id));
-            String Type = c.getString(c.getColumnIndex(type));
-            int Quantity = c.getInt(c.getColumnIndex(quantity));
-            int WarehouseID = c.getInt(c.getColumnIndex(quantity));
-            Stock s = new Stock(Id, Type,WarehouseID, Quantity);
-            results.add(s);
-        }
-        return results;
-    }
-
-    public ArrayList<Stock> getAll(int WarehouseID){
+    public ArrayList<Stock> getAll(int WarehouseID){      //gets every stock from a warehouse
         ArrayList<Stock> results = new ArrayList<Stock>();
         Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + warehouseID + "= ?", new String[]{Integer.toString(WarehouseID)});
         while (c.moveToNext()){
@@ -118,8 +104,8 @@ public class StockManager {
 
 
 
-    public Cursor getStocks(){
+    /*public Cursor getStocks(){
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-    }
+    }*/
 
 }

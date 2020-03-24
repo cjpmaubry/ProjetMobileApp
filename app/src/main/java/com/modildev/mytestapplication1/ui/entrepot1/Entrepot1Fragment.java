@@ -85,8 +85,6 @@ public class Entrepot1Fragment extends Fragment {
             }
         });
 
-        //searchView = root.findViewById(R.id.search_bar1);
-
 
         galleryViewModel.getText().observe(this, new Observer<String>() {
             @Override

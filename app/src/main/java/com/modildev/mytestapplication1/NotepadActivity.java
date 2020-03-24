@@ -75,11 +75,11 @@ public class NotepadActivity extends Activity {
         nm.open();
         noteList = nm.getAll();
         nm.close();
-        newButton.setText(Integer.toString(noteList.size()));
+        //newButton.setText(Integer.toString(noteList.size()));
         recyclerView = (RecyclerView)findViewById(R.id.notepadRecyclerView);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new NotepadAdapter(noteList);
+        adapter = new NotepadAdapter(noteList, nm);
         linearLayoutManager = new LinearLayoutManager(NotepadActivity.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);

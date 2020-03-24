@@ -11,9 +11,11 @@ import java.util.ArrayList;
 
 public class NotepadAdapter extends RecyclerView.Adapter<NotepadViewHolder> {
     private ArrayList<Notepad> noteList;
+    private NotepadManager nm;
 
-    public NotepadAdapter(ArrayList<Notepad> noteList) {
+    public NotepadAdapter(ArrayList<Notepad> noteList, NotepadManager nm) {
         this.noteList = noteList;
+        this.nm = nm;
     }
 
     @NonNull
@@ -24,8 +26,19 @@ public class NotepadAdapter extends RecyclerView.Adapter<NotepadViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotepadViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotepadViewHolder holder, final int position) {
         holder.bind(noteList.get(position));
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nm.open();
+                int Id = noteList.get(position).getId();
+                nm.deleteComment(Id);
+                noteList.remove(position);
+                nm.close();
+            }
+        });
     }
 
     @Override
