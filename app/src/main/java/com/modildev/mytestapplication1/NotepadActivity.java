@@ -82,6 +82,7 @@ public class NotepadActivity extends Activity {
         adapter = new NotepadAdapter(noteList);
         linearLayoutManager = new LinearLayoutManager(NotepadActivity.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
     }
 
     /*public void buttonAction(View v) {

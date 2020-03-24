@@ -25,7 +25,7 @@ public class NotepadAdapter extends RecyclerView.Adapter<NotepadViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NotepadViewHolder holder, int position) {
-        holder.comment.setText(noteList.get(position).getComment());
+        holder.bind(noteList.get(position));
     }
 
     @Override
