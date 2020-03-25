@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.app.AppCompatActivity;
 
 

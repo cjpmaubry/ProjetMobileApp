@@ -32,16 +32,12 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Button settings;
-    //SharedPreference sharedpref;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*sharedpref = new SharedPreference(this);
-        if(sharedpref.loadNightModeState()==true) {
-            setTheme(R.style.darktheme);
-        }
-        else  setTheme(R.style.AppTheme);*/
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -73,21 +69,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-
-
-
-/*
-        settings = findViewById(R.id.action_settings);
-        //Action when press the button nextWithResult
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Change the Activity
-                Intent intent = new Intent(MainActivity.this, Setting.class);
-
-            }
-        });*/
 
 
     }
