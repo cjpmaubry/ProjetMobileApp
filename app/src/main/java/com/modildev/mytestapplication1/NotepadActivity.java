@@ -85,40 +85,5 @@ public class NotepadActivity extends Activity {
         recyclerView.setAdapter(adapter);
     }
 
-    /*public void buttonAction(View v) {
-        final EditText fileName=new EditText(this);
-        AlertDialog.Builder ad=new AlertDialog.Builder(this);
-        ad.setView(fileName);
 
-        if (v.getId() == R.id.saveButton) {
-            ad.setMessage("Save File");
-
-            ad.setPositiveButton("Save",new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    try {
-                        FileOutputStream fout=openFileOutput(fileName.getText().toString()+".txt",MODE_WORLD_READABLE);
-                        fout.write(text.getText().toString().getBytes());
-                    } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Error Occured: "+e,Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
-
-            ad.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
-
-            ad.show();
-
-        }
-
-
-        if(v.getId()==R.id.newButton) {
-            text.setText("");
-        }
-    }*/
 }
